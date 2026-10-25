@@ -1,0 +1,43 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'io.pocketpad.remote'
+    compileSdk 35
+
+    signingConfigs {
+        debug {
+            // Development-only signing key bundled so future beta builds can update
+            // an installed PocketPad 2.x without erasing locally saved shortcuts.
+            // NOT suitable for release or distribution: credentials are in source.
+            storeFile file('pocketpad-debug.keystore')
+            storePassword 'pocketpad-local-only'
+            keyAlias 'pocketpad'
+            keyPassword 'pocketpad-local-only'
+        }
+    }
+
+    defaultConfig {
+        applicationId 'io.pocketpad.remote'
+        minSdk 28
+        targetSdk 34
+        versionCode 11
+        versionName '3.3-beta'
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    // The in-app language picker works offline with every supported translation.
+    // Keep them installed together if a developer later builds an App Bundle.
+    bundle {
+        language { enableSplit = false }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
