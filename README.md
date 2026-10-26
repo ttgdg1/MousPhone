@@ -1,4 +1,4 @@
-# MousPhone 3.3 beta
+# MousPhone
 
 Android 9+ Bluetooth HID remote for Windows: touchpad, mouse, live keyboard input and editable shortcuts. **Nothing needs to be installed or run on the PC.** Remote control uses Bluetooth; no PC server, Wi-Fi connection or internet service is required.
 
